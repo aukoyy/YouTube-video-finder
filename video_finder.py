@@ -21,7 +21,7 @@ def get_start_date_string(search_period_days):
 
 
 def search_each_term(search_terms, api_key, uploaded_since, views_threshold=5000, num_to_print=5):
-    print(f'api_key: {api_key}')
+    # print(f'api_key: {api_key}')
 
     """Uses search term list to execute API calls and print results."""
     if type(search_terms) == str:
@@ -29,8 +29,7 @@ def search_each_term(search_terms, api_key, uploaded_since, views_threshold=5000
 
     list_of_dfs = []
     for i, search_term in enumerate(search_terms):
-        print(i)
-        print(search_terms[i])
+        print(f'searching for {search_terms[i]}')
         df = find_videos(search_terms[i], api_key, views_threshold=views_threshold, uploaded_since = uploaded_since)
         df = df.sort_values(['Custom_Score'], ascending=[0])
         list_of_dfs.append(df)
